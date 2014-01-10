@@ -8,7 +8,7 @@ keystrokes.
 I strongly urge you to pass a sensible validation regexp on the command line. Any input that passes this validation is
 injected and may do evil things to your system.
 
-## Requirements
+### Requirements
 
 `barcode-httpd` requires `flask` to run. To inject keypresses into the system, either the `evdev` module or the
 `xdotool` command-line tool are required.
