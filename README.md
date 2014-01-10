@@ -1,6 +1,6 @@
 ## barcode-httpd
 
-`barcode-httpd` converts any camera-phone running Android into a keyboard emulating barcode reader. It runs a simple
+`barcode-httpd` converts any camera-phone running Android into a keyboard-emulating barcode reader. It runs a simple
 webserver that redirects to the free [ZXing](https://code.google.com/p/zxing/) Android app to scan the barcode. When
 done, the app redirects back to the webserver, which validates the scanned barcode and injects it into the system as
 keystrokes.
@@ -15,7 +15,7 @@ injected and may do evil things to your system.
 
 ### Usage
 
-	$ ./barcode-httpd.py --help                                                                                                                                                                                                                                                         :(
+	$ ./barcode-httpd.py --help
 	usage: barcode-httpd.py [-h] --validation VALIDATION --servername SERVERNAME
 	                        [--port PORT] [--uinput | --xdotool]
 	
