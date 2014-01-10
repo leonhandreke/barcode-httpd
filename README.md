@@ -16,12 +16,17 @@ injected and may do evil things to your system.
 ### Usage
 
 	$ ./barcode-httpd.py --help                                                                                                                                                                                                                                                         :(
-	usage: barcode-httpd.py [-h] --validation VALIDATION [--uinput | --xdotool]
+	usage: barcode-httpd.py [-h] --validation VALIDATION --servername SERVERNAME
+	                        [--port PORT] [--uinput | --xdotool]
 	
 	optional arguments:
 	  -h, --help            show this help message and exit
 	  --validation VALIDATION
 	                        regular expression to match validate barcode with
+	  --servername SERVERNAME
+	                        server name to redirect the phone back to, should
+	                        include the port number
+	  --port PORT           port to listen on (default: 5000)
 	  --uinput              use uinput to inject keyboard events
 	  --xdotool             use xdotool to inject keyboard events
 

@@ -6,16 +6,18 @@ import re
 from flask import Flask, redirect, url_for
 app = Flask(__name__)
 
-# The phone should be able to resolve this hostname
-app.config['SERVER_NAME'] = 'computer.example.com:5000'
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--validation', required=True, help='regular expression to match validate barcode with')
+parser.add_argument('--servername', required=True, help='server name to redirect the phone back to, should include the port number')
+parser.add_argument('--port', type=int, default=5000, help='port to listen on (default: %(default)s)')
 group = parser.add_mutually_exclusive_group()
 group.add_argument('--uinput', action='store_const', const=True, help='use uinput to inject keyboard events')
 group.add_argument('--xdotool', action='store_const', const=True, help='use xdotool to inject keyboard events')
 args = parser.parse_args()
+
+
+app.config['SERVER_NAME'] = args.servername
 
 if args.uinput:
     from evdev import UInput, ecodes
@@ -46,4 +48,4 @@ def scan(barcode=None):
 
 if __name__ == "__main__":
     #app.debug = True
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=args.port)
